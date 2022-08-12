@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Item } from "../../@types/Item";
 
 import Header from "../../components/Header";
+import ListItem from "../../components/ListItem";
 
 import { Container, MainContent } from "./style";
 
@@ -15,6 +16,9 @@ const Home = () => {
     <Container>
       <MainContent>
         <Header />
+        {list.map((item, index) => (
+          <ListItem key={index} item={item} />
+        ))}
       </MainContent>
     </Container>
   );
