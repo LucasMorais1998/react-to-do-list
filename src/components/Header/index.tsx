@@ -1,8 +1,10 @@
+import { Container } from './style'
+
 const Header = () => {
   return (
-    <header>
-      <h1>Header</h1>
-    </header>
+    <Container>
+      <h1>Lista de Tarefas</h1>
+    </Container>
   )
 }
 
