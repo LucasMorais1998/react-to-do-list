@@ -1,9 +1,11 @@
-import { Container } from './style'
+import { Container, MainContent } from './style'
 
 const Home = () => {
   return (
     <Container>
-      ...
+      <MainContent>
+        ...
+      </MainContent>
     </Container>
   );
 };
