@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Item } from "../../@types/Item";
 
 import { Container } from "./style";
@@ -6,9 +7,15 @@ interface IListItemProps {
 }
 
 const ListItem = ({ item }: IListItemProps) => {
+  const [isChecked, setIsChecked] = useState(item.isComplete);
+
+  const handleChecked = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
-    <Container>
-      <input type="checkbox" />
+    <Container isComplete={isChecked}>
+      <input type="checkbox" checked={isChecked} onChange={handleChecked} />
       <label htmlFor="">{item.name}</label>
     </Container>
   );

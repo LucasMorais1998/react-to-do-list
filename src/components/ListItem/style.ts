@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface IContainerProps {
+  isComplete: boolean;
+}
+
+export const Container = styled.div<IContainerProps>`
   display: flex;
   align-items: center;
   background-color: var(--bg-color-secondary);
@@ -16,6 +20,9 @@ export const Container = styled.div`
   }
 
   label {
+    margin-left: 0.3rem;
     color: var(--secondary-color);
+    text-decoration: ${(props) =>
+      props.isComplete ? "line-through" : "initial"};
   }
 `;
