@@ -1,14 +1,16 @@
 import { Item } from "../../@types/Item";
 
+import { Container } from "./style";
 interface IListItemProps {
   item: Item;
 }
 
 const ListItem = ({ item }: IListItemProps) => {
   return (
-    <div>
-      <h1>ListItem</h1>
-    </div>
+    <Container>
+      <input type="checkbox" />
+      <label htmlFor="">{item.name}</label>
+    </Container>
   );
 };
 
