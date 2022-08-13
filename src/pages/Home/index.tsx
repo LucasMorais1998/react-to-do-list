@@ -10,17 +10,27 @@ import { Container, MainContent } from "./style";
 const Home = () => {
   const [list, setList] = useState<Item[]>([
     { id: 1, name: "Pedir almoço", isComplete: false },
-    { id: 2, name: "Limpar a casa", isComplete: false },
+    { id: 2, name: "Limpar a casa", isComplete: true },
   ]);
 
   const handleAddTask = (taskName: string) => {
     let newList = [...list];
 
     newList.push({
-      id: list.length++,
+      id: list.length + 1,
       name: taskName,
       isComplete: false,
     });
+
+    setList(newList);
+  };
+
+  const handleTaskChange = (id: number, isComplete: boolean) => {
+    let newList = [...list];
+
+    for (let i in newList) {
+      if (newList[i].id === id) newList[i].isComplete = isComplete;
+    }
 
     setList(newList);
   };
@@ -29,11 +39,15 @@ const Home = () => {
     <Container>
       <MainContent>
         <Header />
-        
+
         <AddArea onHandleAddTask={handleAddTask} />
 
         {list.map((item, index) => (
-          <ListItem key={index} item={item} />
+          <ListItem
+            key={index}
+            item={item}
+            onHandleTaskChange={handleTaskChange}
+          />
         ))}
       </MainContent>
     </Container>

@@ -1,22 +1,20 @@
-import { useState } from "react";
 import { Item } from "../../@types/Item";
 
 import { Container } from "./style";
 interface IListItemProps {
   item: Item;
+  onHandleTaskChange: (id: number, isComplete: boolean) => void;
 }
 
-const ListItem = ({ item }: IListItemProps) => {
-  const [isChecked, setIsChecked] = useState(item.isComplete);
-
-  const handleChecked = () => {
-    setIsChecked(!isChecked);
-  };
-
+const ListItem = ({ item, onHandleTaskChange }: IListItemProps) => {
   return (
-    <Container isComplete={isChecked}>
-      <input type="checkbox" checked={isChecked} onChange={handleChecked} />
-      <label htmlFor="">{item.name}</label>
+    <Container isComplete={item.isComplete}>
+      <input
+        type="checkbox"
+        checked={item.isComplete}
+        onChange={(e) => onHandleTaskChange(item.id, e.target.checked)}
+      />
+      <label>{item.name}</label>
     </Container>
   );
 };
