@@ -13,11 +13,25 @@ const Home = () => {
     { id: 2, name: "Limpar a casa", isComplete: false },
   ]);
 
+  const handleAddTask = (taskName: string) => {
+    let newList = [...list];
+
+    newList.push({
+      id: list.length++,
+      name: taskName,
+      isComplete: false,
+    });
+
+    setList(newList);
+  };
+
   return (
     <Container>
       <MainContent>
         <Header />
-        <AddArea />
+        
+        <AddArea onHandleAddTask={handleAddTask} />
+
         {list.map((item, index) => (
           <ListItem key={index} item={item} />
         ))}
