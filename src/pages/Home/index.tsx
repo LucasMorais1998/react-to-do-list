@@ -40,13 +40,13 @@ const Home = () => {
       <MainContent>
         <Header />
 
-        <AddArea onHandleAddTask={handleAddTask} />
+        <AddArea onAddTask={handleAddTask} />
 
         {list.map((item, index) => (
           <ListItem
             key={index}
             item={item}
-            onHandleTaskChange={handleTaskChange}
+            onTaskChange={handleTaskChange}
           />
         ))}
       </MainContent>

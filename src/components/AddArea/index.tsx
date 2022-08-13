@@ -4,22 +4,22 @@ import { BsFillPlusSquareFill } from "react-icons/bs";
 import { Container } from "./style";
 
 interface IAddAreaProps {
-  onHandleAddTask: (taskName: string) => void;
+  onAddTask: (taskName: string) => void;
 }
 
-const AddArea = ({ onHandleAddTask }: IAddAreaProps) => {
+const AddArea = ({ onAddTask }: IAddAreaProps) => {
   const [inputText, setInputText] = useState("");
 
   const handleKeyUp = (e: KeyboardEvent) => {
     if (e.code === "Enter" && inputText !== "") {
-      onHandleAddTask(inputText);
+      onAddTask(inputText);
       setInputText("");
     }
   };
 
   const handleClick = () => {
     if (inputText !== "") {
-      onHandleAddTask(inputText);
+      onAddTask(inputText);
       setInputText("");
     }
   };
